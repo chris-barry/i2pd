@@ -1,0 +1,14 @@
+_i2pd()
+{
+    local cur prev opts
+    _init_completion || return
+
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+	# TODO: None of these are right
+    opts="console start stop graceful restart condrestart status install remove dump"
+    COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+}
+complete -F _i2pd i2pd
+
