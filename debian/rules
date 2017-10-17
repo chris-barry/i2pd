@@ -11,7 +11,7 @@ CXXFLAGS+=$(CPPFLAGS)
 PREFIX=/usr
 
 %:
-	dh $@ --parallel
+	dh $@ --parallel --with bash-completion
 	dh_apparmor --profile-name=usr.sbin.i2pd -pi2pd
 
 override_dh_strip:

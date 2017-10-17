@@ -1,3 +1,4 @@
+# Generate list of options with the help of this: ./i2pd --help | \grep -- '--' | cut -d' ' -f3 - | sort | tr '\n' ' '
 _i2pd()
 {
     local cur prev opts
@@ -6,8 +7,7 @@ _i2pd()
     COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
-	# TODO: None of these are right
-    opts="console start stop graceful restart condrestart status install remove dump"
+    opts="--addressbook.defaulturl --addressbook.subscriptions --bandwidth --bob.address --bob.enabled --bob.port --conf --daemon --datadir --exploratory.inbound.length --exploratory.inbound.quantity --exploratory.outbound.length --exploratory.outbound.quantity --family --floodfill --help --host --http.address --http.auth --http.enabled --http.pass --http.port --httpproxy.address --httpproxy.addresshelper --httpproxy.enabled --httpproxy.inbound.length --httpproxy.inbound.quantity --httpproxy.keys --httpproxy.latency.max --httpproxy.latency.min --httpproxy.outbound.length --httpproxy.outbound.quantity --httpproxy.outproxy --httpproxy.port --httpproxy.signaturetype --http.user --i2cp.address --i2cp.enabled --i2cp.port --i2pcontrol.address --i2pcontrol.cert --i2pcontrol.enabled --i2pcontrol.key --i2pcontrol.password --i2pcontrol.port --ifname --ifname4 --ifname6 --ipv4 --ipv6 --limits.coresize --limits.openfiles --limits.transittunnels --log --logclftime --logfile --loglevel --nat --netid --notransit --ntcp --ntcpproxy --pidfile --port --precomputation.elgamal --reseed.file --reseed.floodfill --reseed.threshold --reseed.urls --reseed.verify --reseed.zipfile --sam.address --sam.enabled --sam.port --service --share --socksproxy.address --socksproxy.enabled --socksproxy.inbound.length --socksproxy.inbound.quantity --socksproxy.keys --socksproxy.latency.max --socksproxy.latency.min --socksproxy.outbound.length --socksproxy.outbound.quantity --socksproxy.outproxy --socksproxy.outproxy.enabled --socksproxy.outproxyport --socksproxy.port --socksproxy.signaturetype --ssu --trust.enabled --trust.family --trust.hidden --trust.routers --tunconf --upnp.enabled --upnp.name --websockets.address --websockets.enabled --websockets.port"
     COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
 }
 complete -F _i2pd i2pd

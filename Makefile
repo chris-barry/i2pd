@@ -115,8 +115,12 @@ last-dist:
 doxygen:
 	doxygen -s docs/Doxyfile
 
+debian:
+	debuild --no-tgz-check -b -uc -us
+
 .PHONY: all
 .PHONY: clean
+.PHONY: debian
 .PHONY: deps
 .PHONY: doxygen
 .PHONY: dist
